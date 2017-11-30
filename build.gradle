@@ -1,0 +1,33 @@
+group 'com.btk5h.skriptdoclet'
+version '1.0.0'
+
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+  }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  maven {
+    url 'http://maven.jahia.org/maven2/'
+  }
+}
+
+dependencies {
+  shadow 'junit:junit:4.12'
+  shadow 'com.sun:tools:1.5.0'
+  compile 'com.google.code.gson:gson:2.8.2'
+}
+
+shadowJar {
+  archiveName 'skriptdoclet.jar'
+}
